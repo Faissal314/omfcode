@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FaqController;
 use App\Models\Post;
 use App\Models\Project;
 use App\Models\Testimonial;
@@ -34,9 +35,8 @@ Route::post('/contact', function (\Illuminate\Http\Request $request) {
     return response()->json(['success' => true]);
 });
 
-Route::get('/faq', function () {
-    return view('faq');
-})->name('faq');
+Route::get('/faq', [FaqController::class, 'index'])->name('faq');
+Route::post('/faq/ask', [FaqController::class, 'ask'])->name('faq.ask');
 
 Route::get('/rendez-vous', function () {
     return view('rendez-vous');

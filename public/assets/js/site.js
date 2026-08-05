@@ -67,6 +67,7 @@ function headerHTML() {
         <button onclick="toggleTheme()" aria-label="Basculer le thème" class="w-9 h-9 grid place-items-center rounded-lg border border-line hover:bg-app-2 transition">
           <span data-theme-icon>${document.documentElement.classList.contains('dark') ? '☀' : '☾'}</span>
         </button>
+        <a href="/faq" class="btn btn-outline text-sm ml-2 hidden lg:inline-flex">FAQ</a>
         <a href="/rendez-vous" class="btn btn-primary text-sm ml-2">Prendre rendez-vous</a>
       </nav>
 
