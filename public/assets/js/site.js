@@ -358,9 +358,11 @@ function chatbotHTML() {
       display: grid; place-items: center;
       transition: transform 0.15s, opacity 0.15s;
       flex-shrink: 0;
-    }
-    #omfChatSendBtn:hover { transform: scale(1.08); }
     #omfChatSendBtn:disabled { opacity: 0.4; transform: none; cursor: default; }
+
+    /* Link styling in chat */
+    #omfChatLog a { color: #06B6D4; text-decoration: underline; font-weight: 600; transition: color 0.15s; }
+    #omfChatLog a:hover { color: #38BDF8; }
 
     /* Responsive */
     @media (max-width: 420px) {
@@ -415,6 +417,20 @@ function chatbotHTML() {
 
 window.omfChatHistory = [];
 
+function formatChatMarkdown(text) {
+  if (!text) return '';
+  let html = text;
+  // Bold **text**
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  // Links [text](url)
+  html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" class="chat-link" target="_self">$1</a>');
+  // Bullet items
+  html = html.replace(/^[\s]*[\-\*]\s+(.*)$/gm, '• $1');
+  // Newlines to <br>
+  html = html.replace(/\n/g, '<br>');
+  return html;
+}
+
 window.omfChatToggle = function () {
   const panel = document.getElementById('omfChatPanel');
   if (!panel) return;
@@ -444,6 +460,10 @@ window.omfChatSend = async function (e) {
   const val = input.value.trim();
   if (!val) return;
 
+  // Cacher les suggestions
+  const suggestions = document.getElementById('omfChatSuggestions');
+  if (suggestions) suggestions.style.display = 'none';
+
   // Affiche le message de l'utilisateur
   log.insertAdjacentHTML('beforeend', `<div class="msg-user">${val}</div>`);
   input.value = '';
@@ -471,19 +491,17 @@ window.omfChatSend = async function (e) {
     // Supprime l'indicateur
     document.getElementById(typingId)?.remove();
 
+    const reply = data.reply || 'Désolé, je n\'ai pas pu répondre à votre demande.';
+
     // Ajout à l'historique
     window.omfChatHistory.push({ role: 'user', content: val });
-    window.omfChatHistory.push({ role: 'assistant', content: data.reply });
+    window.omfChatHistory.push({ role: 'assistant', content: reply });
 
-    // Convert Markdown links [text](url) to HTML <a href="url">text</a>
-    let replyHtml = data.reply.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" style="color:#06B6D4;text-decoration:underline">$1</a>');
-    // Convert newlines to <br>
-    replyHtml = replyHtml.replace(/\n/g, '<br>');
-
+    const replyHtml = formatChatMarkdown(reply);
     log.insertAdjacentHTML('beforeend', `<div class="msg-bot">${replyHtml}</div>`);
   } catch (error) {
     document.getElementById(typingId)?.remove();
-    log.insertAdjacentHTML('beforeend', `<div class="msg-bot" style="color:#f87171">Erreur de connexion. Veuillez réessayer.</div>`);
+    log.insertAdjacentHTML('beforeend', `<div class="msg-bot" style="color:#f87171">Erreur de connexion. Veuillez réessayer ou <a href="/contact">nous contacter</a>.</div>`);
   }
 
   if (btn) btn.disabled = false;
