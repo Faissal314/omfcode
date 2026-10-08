@@ -122,19 +122,19 @@ function footerHTML() {
       <div>
         <h4 class="font-display font-bold text-ink mb-4">Services</h4>
         <ul class="space-y-2 text-sm text-muted">
-          <li><a class="hover:text-brand" href="/site/services/developpement.html">Développement</a></li>
-          <li><a class="hover:text-brand" href="/site/services/intelligence-artificielle.html">Intelligence artificielle</a></li>
-          <li><a class="hover:text-brand" href="/site/services/formation.html">Formation</a></li>
-          <li><a class="hover:text-brand" href="/site/services/conseil.html">Conseil</a></li>
+          <li><a class="hover:text-brand" href="/services#developpement">Développement</a></li>
+          <li><a class="hover:text-brand" href="/services#intelligence-artificielle">Intelligence artificielle</a></li>
+          <li><a class="hover:text-brand" href="/services#formation">Formation</a></li>
+          <li><a class="hover:text-brand" href="/services#conseil">Conseil</a></li>
         </ul>
       </div>
       <div>
         <h4 class="font-display font-bold text-ink mb-4">Entreprise</h4>
         <ul class="space-y-2 text-sm text-muted">
           <li><a class="hover:text-brand" href="/about">Qui sommes-nous</a></li>
-          <li><a class="hover:text-brand" href="#">Réalisations</a></li>
-          <li><a class="hover:text-brand" href="#">Blog</a></li>
-          <li><a class="hover:text-brand" href="#">Témoignages</a></li>
+          <li><a class="hover:text-brand" href="/realisations">Réalisations</a></li>
+          <li><a class="hover:text-brand" href="/blog">Blog</a></li>
+          <li><a class="hover:text-brand" href="/temoignages">Témoignages</a></li>
           <li><a class="hover:text-brand" href="/faq">FAQ</a></li>
           <li><a class="hover:text-brand" href="/contact">Contact</a></li>
         </ul>

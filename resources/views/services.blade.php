@@ -10,7 +10,7 @@
 
   <section class="max-w-7xl mx-auto px-5 lg:px-8 py-16 space-y-16">
     @foreach($categories as $category)
-    <div class="grid lg:grid-cols-3 gap-8 items-start reveal">
+    <div id="{{ $category->slug }}" class="grid lg:grid-cols-3 gap-8 items-start reveal" style="scroll-margin-top: 100px;">
       <div class="lg:col-span-1">
         <div class="w-12 h-12 rounded-xl bg-brand-050 text-brand grid place-items-center text-xl mb-4">{!! $category->icon !!}</div>
         <h2 class="font-display font-bold text-3xl">{{ $category->name }}</h2>
