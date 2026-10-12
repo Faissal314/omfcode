@@ -19,15 +19,19 @@ class TestimonialResource extends Resource
     protected static ?string $model = Testimonial::class;
 
     protected static ?string $modelLabel = 'Témoignage';
+
     protected static ?string $pluralModelLabel = 'Témoignages';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedStar;
+
     protected static string|\UnitEnum|null $navigationGroup = 'Interactions Clients';
+
     protected static ?int $navigationSort = 3;
 
     public static function getNavigationBadge(): ?string
     {
         $count = static::getModel()::where('is_approved', false)->count();
+
         return $count > 0 ? (string) $count : null;
     }
 

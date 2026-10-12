@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Projects\Tables;
 
+use App\Models\Project;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -20,22 +21,22 @@ class ProjectsTable
                 ImageColumn::make('image_url')
                     ->label('Image')
                     ->square(),
-                
+
                 TextColumn::make('title')
                     ->label('Titre')
                     ->searchable()
                     ->weight('bold'),
-                
+
                 TextColumn::make('category')
                     ->label('Catégorie')
                     ->badge()
                     ->searchable(),
-                
+
                 TextColumn::make('stack')
                     ->label('Stack Technique')
                     ->searchable()
                     ->limit(30),
-                
+
                 TextColumn::make('link')
                     ->label('Lien')
                     ->url(fn ($record) => $record->link)
@@ -44,7 +45,7 @@ class ProjectsTable
                     ->color('primary')
                     ->limit(20)
                     ->placeholder('—'),
-                
+
                 TextColumn::make('created_at')
                     ->label('Ajouté le')
                     ->dateTime('d/m/Y')
@@ -54,7 +55,7 @@ class ProjectsTable
             ->filters([
                 SelectFilter::make('category')
                     ->label('Catégorie')
-                    ->options(fn () => \App\Models\Project::query()->distinct()->pluck('category', 'category')->toArray()),
+                    ->options(fn () => Project::query()->distinct()->pluck('category', 'category')->toArray()),
             ])
             ->recordActions([
                 EditAction::make()->label('Modifier'),

@@ -2,21 +2,20 @@
 
 namespace App\Filament\Resources\Appointments\Tables;
 
+use App\Mail\AppointmentCancelledMail;
+use App\Mail\AppointmentValidatedMail;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ViewAction;
-use Filament\Actions\Action;
-use Filament\Tables\Columns\BadgeColumn;
+use Filament\Notifications\Notification;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\AppointmentValidatedMail;
-use App\Mail\AppointmentCancelledMail;
-use Filament\Notifications\Notification;
 
 class AppointmentsTable
 {
@@ -42,11 +41,11 @@ class AppointmentsTable
                     ->badge()
                     ->color(fn (string $state): string => match (strtolower($state)) {
                         'gratuite' => 'info',
-                        'audit'    => 'warning',
-                        'formation'=> 'success',
-                        'dev'      => 'primary',
-                        'ia'       => 'danger',
-                        default    => 'gray',
+                        'audit' => 'warning',
+                        'formation' => 'success',
+                        'dev' => 'primary',
+                        'ia' => 'danger',
+                        default => 'gray',
                     })
                     ->searchable(),
 
@@ -109,12 +108,12 @@ class AppointmentsTable
                     ->label('Type de RDV')
                     ->options([
                         'gratuite' => 'Consultation gratuite',
-                        'audit'    => 'Audit',
-                        'formation'=> 'Formation',
-                        'dev'      => 'Développement',
-                        'ia'       => 'Accompagnement IA',
+                        'audit' => 'Audit',
+                        'formation' => 'Formation',
+                        'dev' => 'Développement',
+                        'ia' => 'Accompagnement IA',
                     ]),
-                
+
                 SelectFilter::make('status')
                     ->label('Statut')
                     ->options([
@@ -137,7 +136,7 @@ class AppointmentsTable
                         Mail::to($record->email)->send(new AppointmentValidatedMail($record));
                         Notification::make()->title('Rendez-vous validé et email envoyé.')->success()->send();
                     }),
-                    
+
                 Action::make('cancel')
                     ->label('Annuler')
                     ->icon('heroicon-o-x-circle')

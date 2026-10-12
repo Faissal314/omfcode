@@ -20,6 +20,7 @@ class EditContactMessage extends EditRecord
         // Marquer automatiquement comme lu à l'ouverture
         $this->getRecord()->update(['is_read' => true]);
         $data['is_read'] = true;
+
         return $data;
     }
 

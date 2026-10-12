@@ -4,6 +4,7 @@ namespace App\Filament\Resources\ContactMessages\Tables;
 
 use App\Mail\ContactMessageReplyMail;
 use Filament\Actions\Action;
+use Filament\Actions\BulkAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\ViewAction;
@@ -101,12 +102,12 @@ class ContactMessagesTable
                     ->tooltip('Marquer comme lu')
                     ->icon('heroicon-o-check')
                     ->color('success')
-                    ->visible(fn ($record) => !$record->is_read)
+                    ->visible(fn ($record) => ! $record->is_read)
                     ->action(fn ($record) => $record->update(['is_read' => true])),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    \Filament\Actions\BulkAction::make('mark_all_read')
+                    BulkAction::make('mark_all_read')
                         ->label('Marquer comme lus')
                         ->icon('heroicon-o-check-circle')
                         ->action(fn ($records) => $records->each->update(['is_read' => true]))

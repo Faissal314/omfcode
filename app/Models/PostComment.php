@@ -10,7 +10,7 @@ class PostComment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'post_id', 'name', 'email', 'content', 'is_approved'
+        'post_id', 'name', 'email', 'content', 'is_approved',
     ];
 
     public function post()

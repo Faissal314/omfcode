@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources\ContactMessages;
 
-use App\Filament\Resources\ContactMessages\Pages\ListContactMessages;
 use App\Filament\Resources\ContactMessages\Pages\EditContactMessage;
+use App\Filament\Resources\ContactMessages\Pages\ListContactMessages;
 use App\Filament\Resources\ContactMessages\Pages\ViewContactMessage;
 use App\Filament\Resources\ContactMessages\Schemas\ContactMessageForm;
 use App\Filament\Resources\ContactMessages\Tables\ContactMessagesTable;
@@ -21,14 +21,19 @@ class ContactMessageResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedEnvelope;
 
     protected static ?string $recordTitleAttribute = 'subject';
+
     protected static ?string $modelLabel = 'Message de Contact';
+
     protected static ?string $pluralModelLabel = 'Messages de Contact';
+
     protected static string|\UnitEnum|null $navigationGroup = 'Interactions Clients';
+
     protected static ?int $navigationSort = 2;
 
     public static function getNavigationBadge(): ?string
     {
         $count = static::getModel()::where('is_read', false)->count();
+
         return $count > 0 ? (string) $count : null;
     }
 
@@ -58,8 +63,8 @@ class ContactMessageResource extends Resource
     {
         return [
             'index' => ListContactMessages::route('/'),
-            'view'  => ViewContactMessage::route('/{record}'),
-            'edit'  => EditContactMessage::route('/{record}/edit'),
+            'view' => ViewContactMessage::route('/{record}'),
+            'edit' => EditContactMessage::route('/{record}/edit'),
         ];
     }
 }

@@ -20,7 +20,7 @@ class ServiceSeeder extends Seeder
                     ['title' => 'Applications web', 'short_description' => 'SPA, dashboards, back-office.'],
                     ['title' => 'Applications mobiles', 'short_description' => 'iOS & Android natifs ou Flutter.'],
                     ['title' => 'Logiciels sur mesure', 'short_description' => 'ERP, CRM, outils internes.'],
-                ]
+                ],
             ],
             [
                 'name' => 'Intelligence artificielle',
@@ -33,7 +33,7 @@ class ServiceSeeder extends Seeder
                     ['title' => 'IA pour PME', 'short_description' => 'Packs prêts-à-l\'emploi.'],
                     ['title' => 'Prompt Engineering', 'short_description' => 'Prompts qui produisent des résultats.'],
                     ['title' => 'Agents IA', 'short_description' => 'Agents autonomes multi-outils.'],
-                ]
+                ],
             ],
             [
                 'name' => 'Formation',
@@ -46,7 +46,7 @@ class ServiceSeeder extends Seeder
                     ['title' => 'Word', 'short_description' => 'Rédaction professionnelle.'],
                     ['title' => 'Excel', 'short_description' => 'Fonctions, TCD, dashboards.'],
                     ['title' => 'PowerPoint', 'short_description' => 'Présentations qui convainquent.'],
-                ]
+                ],
             ],
             [
                 'name' => 'Conseil',
@@ -56,8 +56,8 @@ class ServiceSeeder extends Seeder
                     ['title' => 'Audit informatique', 'short_description' => 'Diagnostic complet sous 2 semaines.'],
                     ['title' => 'Transformation numérique', 'short_description' => 'Feuille de route sur 12 mois.'],
                     ['title' => 'Accompagnement', 'short_description' => 'CTO à temps partagé.'],
-                ]
-            ]
+                ],
+            ],
         ];
 
         foreach ($categories as $catData) {
@@ -74,7 +74,7 @@ class ServiceSeeder extends Seeder
             foreach ($services as $srvData) {
                 $slug = Str::slug($srvData['title']);
                 $srvData['slug'] = $slug;
-                $srvData['content'] = '<p>Détails à venir pour le service <strong>' . $srvData['title'] . '</strong>. Vous pouvez modifier ce contenu via le panneau d\'administration.</p>';
+                $srvData['content'] = '<p>Détails à venir pour le service <strong>'.$srvData['title'].'</strong>. Vous pouvez modifier ce contenu via le panneau d\'administration.</p>';
 
                 $category->services()->firstOrCreate(
                     ['slug' => $slug],

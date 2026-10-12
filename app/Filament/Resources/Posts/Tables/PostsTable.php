@@ -20,6 +20,7 @@ class PostsTable
             ->columns([
                 ImageColumn::make('image_url')
                     ->label('Image')
+                    ->disk('public')
                     ->square(),
 
                 TextColumn::make('title')

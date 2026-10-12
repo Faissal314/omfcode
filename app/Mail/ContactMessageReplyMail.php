@@ -21,7 +21,7 @@ class ContactMessageReplyMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Réponse à votre message : ' . $this->originalSubject,
+            subject: 'Réponse à votre message : '.$this->originalSubject,
         );
     }
 

@@ -16,9 +16,9 @@
   <section class="max-w-4xl mx-auto px-5 lg:px-8 py-12">
     <!-- Article Image and Content -->
     <div class="card p-6 md:p-10 reveal">
-      @if($post->image_url)
+      @if($post->imagePublicUrl())
         <div class="aspect-video w-full rounded-xl overflow-hidden mb-8">
-          <img src="{{ $post->image_url }}" alt="{{ $post->title }}" class="w-full h-full object-cover" />
+          <img src="{{ $post->imagePublicUrl() }}" alt="{{ $post->title }}" class="w-full h-full object-cover" />
         </div>
       @endif
 

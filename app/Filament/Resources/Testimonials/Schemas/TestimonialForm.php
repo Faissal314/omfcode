@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources\Testimonials\Schemas;
 
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
 class TestimonialForm
@@ -29,7 +30,7 @@ class TestimonialForm
                     ->required()
                     ->numeric()
                     ->default(5),
-                \Filament\Forms\Components\Toggle::make('is_approved')
+                Toggle::make('is_approved')
                     ->label('Approuvé / Publié')
                     ->default(true),
             ]);

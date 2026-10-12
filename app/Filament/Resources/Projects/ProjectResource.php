@@ -19,11 +19,15 @@ class ProjectResource extends Resource
     protected static ?string $model = Project::class;
 
     protected static ?string $modelLabel = 'Réalisation';
+
     protected static ?string $pluralModelLabel = 'Réalisations';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBriefcase;
+
     protected static string|\UnitEnum|null $navigationGroup = 'Contenu & Offres';
+
     protected static ?int $navigationSort = 1;
+
     protected static ?string $recordTitleAttribute = 'title';
 
     public static function form(Schema $schema): Schema

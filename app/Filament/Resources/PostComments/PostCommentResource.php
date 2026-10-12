@@ -20,14 +20,19 @@ class PostCommentResource extends Resource
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedChatBubbleLeftRight;
 
     protected static ?string $recordTitleAttribute = 'name';
+
     protected static ?string $modelLabel = 'Commentaire';
+
     protected static ?string $pluralModelLabel = 'Commentaires';
+
     protected static string|\UnitEnum|null $navigationGroup = 'Interactions Clients';
+
     protected static ?int $navigationSort = 4;
 
     public static function getNavigationBadge(): ?string
     {
         $count = static::getModel()::where('is_approved', false)->count();
+
         return $count > 0 ? (string) $count : null;
     }
 

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\ChatBotController;
 use App\Models\FaqQuestion;
 use Illuminate\Http\Request;
 

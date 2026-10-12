@@ -35,7 +35,7 @@ test('faq ask route returns answer and stores question', function (): void {
     ]);
 
     $response = $this->postJson('/faq/ask', [
-        'question' => 'Que proposez-vous ?'
+        'question' => 'Que proposez-vous ?',
     ]);
 
     $response->assertStatus(200)

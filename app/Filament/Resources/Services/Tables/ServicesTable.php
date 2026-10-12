@@ -53,7 +53,7 @@ class ServicesTable
                 SelectFilter::make('service_category_id')
                     ->relationship('category', 'name')
                     ->label('Catégorie'),
-                    
+
                 TernaryFilter::make('is_active')
                     ->label('Statut')
                     ->trueLabel('Actifs')

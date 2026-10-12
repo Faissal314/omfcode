@@ -19,11 +19,15 @@ class PostResource extends resource
     protected static ?string $model = Post::class;
 
     protected static ?string $modelLabel = 'Article (Blog)';
+
     protected static ?string $pluralModelLabel = 'Articles (Blog)';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedDocumentText;
+
     protected static string|\UnitEnum|null $navigationGroup = 'Contenu & Offres';
+
     protected static ?int $navigationSort = 2;
+
     protected static ?string $recordTitleAttribute = 'title';
 
     public static function form(Schema $schema): Schema

@@ -9,9 +9,6 @@ use Filament\Actions\Action;
 use Filament\Actions\EditAction;
 use Filament\Notifications\Notification;
 use Filament\Resources\Pages\ViewRecord;
-use Filament\Schemas\Components\Section;
-use Filament\Schemas\Schema;
-use Filament\Infolists\Components\TextEntry;
 use Illuminate\Support\Facades\Mail;
 
 class ViewAppointment extends ViewRecord

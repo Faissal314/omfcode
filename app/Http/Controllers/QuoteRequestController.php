@@ -15,13 +15,13 @@ class QuoteRequestController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name'         => 'required|string|max:255',
-            'email'        => 'required|email',
-            'phone'        => 'nullable|string|max:30',
-            'company'      => 'nullable|string|max:255',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'phone' => 'nullable|string|max:30',
+            'company' => 'nullable|string|max:255',
             'project_type' => 'nullable|string|max:100',
-            'description'  => 'required|string|max:3000',
-            'budget'       => 'nullable|string|max:50',
+            'description' => 'required|string|max:3000',
+            'budget' => 'nullable|string|max:50',
         ]);
 
         QuoteRequest::create($data);

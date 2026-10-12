@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            \Database\Seeders\FaqSeeder::class,
+            FaqSeeder::class,
         ]);
     }
 }

@@ -4,14 +4,16 @@ namespace App\Filament\Widgets;
 
 use App\Models\Appointment;
 use App\Models\ContactMessage;
-use Carbon\Carbon;
 use Filament\Widgets\ChartWidget;
 
 class ActivityChart extends ChartWidget
 {
     protected static ?int $sort = 2;
+
     protected ?string $heading = 'Activité des 30 derniers jours';
+
     protected ?string $description = 'Évolution des messages et rendez-vous reçus';
+
     protected int|string|array $columnSpan = 'full';
 
     protected function getData(): array

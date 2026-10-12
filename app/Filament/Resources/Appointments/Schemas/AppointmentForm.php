@@ -3,12 +3,11 @@
 namespace App\Filament\Resources\Appointments\Schemas;
 
 use Filament\Forms\Components\DatePicker;
-use Filament\Schemas\Components\Grid;
-use Filament\Schemas\Components\Section;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\TimePicker;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class AppointmentForm
@@ -47,19 +46,19 @@ class AppointmentForm
                             ->label('Type de rendez-vous')
                             ->options([
                                 'gratuite' => 'Consultation gratuite',
-                                'audit'    => 'Audit',
-                                'formation'=> 'Formation',
-                                'dev'      => 'Développement',
-                                'ia'       => 'Accompagnement IA',
+                                'audit' => 'Audit',
+                                'formation' => 'Formation',
+                                'dev' => 'Développement',
+                                'ia' => 'Accompagnement IA',
                             ])
                             ->required()
                             ->columnSpan(1),
                         Select::make('contact_channel')
                             ->label('Canal de contact')
                             ->options([
-                                'tel'  => 'Téléphone',
+                                'tel' => 'Téléphone',
                                 'meet' => 'Google Meet',
-                                'wa'   => 'WhatsApp',
+                                'wa' => 'WhatsApp',
                             ])
                             ->required()
                             ->columnSpan(1),
@@ -77,7 +76,7 @@ class AppointmentForm
                         Select::make('status')
                             ->label('Statut')
                             ->options([
-                                'pending'   => 'En attente',
+                                'pending' => 'En attente',
                                 'validated' => 'Validé',
                                 'cancelled' => 'Annulé',
                             ])

@@ -13,8 +13,8 @@
     <!-- Article à la une -->
     <a href="{{ route('blog.show', $featured->slug) }}" class="card overflow-hidden grid md:grid-cols-2 card-hover mb-10 reveal">
       <div class="aspect-video md:aspect-auto bg-gradient-to-br from-brand to-indigo-900">
-        @if($featured->image_url)
-          <img src="{{ $featured->image_url }}" alt="{{ $featured->title }}" class="w-full h-full object-cover" />
+        @if($featured->imagePublicUrl())
+          <img src="{{ $featured->imagePublicUrl() }}" alt="{{ $featured->title }}" class="w-full h-full object-cover" />
         @endif
       </div>
       <div class="p-8">
@@ -30,8 +30,8 @@
       @forelse($posts as $post)
       <a href="{{ route('blog.show', $post->slug) }}" class="card overflow-hidden card-hover reveal">
         <div class="aspect-video bg-gradient-to-br from-brand/60 to-indigo-900">
-          @if($post->image_url)
-            <img src="{{ $post->image_url }}" alt="{{ $post->title }}" class="w-full h-full object-cover" />
+          @if($post->imagePublicUrl())
+            <img src="{{ $post->imagePublicUrl() }}" alt="{{ $post->title }}" class="w-full h-full object-cover" />
           @endif
         </div>
         <div class="p-5">

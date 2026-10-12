@@ -10,6 +10,6 @@ class Project extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'description', 'category', 'stack', 'gradient_classes', 'image_url', 'link'
+        'title', 'description', 'category', 'stack', 'gradient_classes', 'image_url', 'link',
     ];
 }

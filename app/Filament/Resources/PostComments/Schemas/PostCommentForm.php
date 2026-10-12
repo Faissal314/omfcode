@@ -2,8 +2,9 @@
 
 namespace App\Filament\Resources\PostComments\Schemas;
 
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Schema;
 
@@ -13,7 +14,7 @@ class PostCommentForm
     {
         return $schema
             ->components([
-                \Filament\Forms\Components\Select::make('post_id')
+                Select::make('post_id')
                     ->relationship('post', 'title')
                     ->label('Article')
                     ->required()

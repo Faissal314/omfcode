@@ -3,10 +3,10 @@
 namespace App\Filament\Resources\QuoteRequests\Schemas;
 
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
-use Filament\Schemas\Components\Section;
+use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class QuoteRequestForm
@@ -41,7 +41,7 @@ class QuoteRequestForm
                             Select::make('budget')
                                 ->label('Budget estimé')
                                 ->options([
-                                    '< 500€'   => 'Moins de 500€',
+                                    '< 500€' => 'Moins de 500€',
                                     '500-2000€' => '500€ – 2 000€',
                                     '2000-5000€' => '2 000€ – 5 000€',
                                     '5000-15000€' => '5 000€ – 15 000€',

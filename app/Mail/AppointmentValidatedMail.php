@@ -13,9 +13,7 @@ class AppointmentValidatedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public function __construct(public Appointment $appointment)
-    {
-    }
+    public function __construct(public Appointment $appointment) {}
 
     public function envelope(): Envelope
     {

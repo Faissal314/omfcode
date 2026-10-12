@@ -51,7 +51,7 @@ class QuoteRequestResource extends Resource
     {
         return [
             'index' => ListQuoteRequests::route('/'),
-            'edit'  => EditQuoteRequest::route('/{record}/edit'),
+            'edit' => EditQuoteRequest::route('/{record}/edit'),
         ];
     }
 }

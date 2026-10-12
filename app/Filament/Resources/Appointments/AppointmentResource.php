@@ -20,15 +20,19 @@ class AppointmentResource extends Resource
     protected static ?string $model = Appointment::class;
 
     protected static ?string $modelLabel = 'Rendez-vous';
+
     protected static ?string $pluralModelLabel = 'Rendez-vous';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedCalendar;
+
     protected static string|\UnitEnum|null $navigationGroup = 'Interactions Clients';
+
     protected static ?int $navigationSort = 1;
 
     public static function getNavigationBadge(): ?string
     {
         $count = static::getModel()::where('status', 'pending')->count();
+
         return $count > 0 ? (string) $count : null;
     }
 
@@ -57,10 +61,10 @@ class AppointmentResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index'  => ListAppointments::route('/'),
+            'index' => ListAppointments::route('/'),
             'create' => CreateAppointment::route('/create'),
-            'view'   => ViewAppointment::route('/{record}'),
-            'edit'   => EditAppointment::route('/{record}/edit'),
+            'view' => ViewAppointment::route('/{record}'),
+            'edit' => EditAppointment::route('/{record}/edit'),
         ];
     }
 }

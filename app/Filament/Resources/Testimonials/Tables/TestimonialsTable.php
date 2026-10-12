@@ -23,24 +23,24 @@ class TestimonialsTable
                     ->searchable()
                     ->weight('bold')
                     ->description(fn ($record) => $record->client_role),
-                
+
                 TextColumn::make('initials')
                     ->label('Init.')
                     ->badge()
                     ->color('primary')
                     ->toggleable(isToggledHiddenByDefault: true),
-                
+
                 TextColumn::make('rating')
                     ->label('Note')
                     ->formatStateUsing(fn ($state) => str_repeat('⭐', $state))
                     ->sortable(),
-                
+
                 TextColumn::make('content')
                     ->label('Témoignage')
                     ->limit(50)
                     ->wrap()
                     ->color('gray'),
-                
+
                 IconColumn::make('is_approved')
                     ->label('Statut')
                     ->boolean()
@@ -49,7 +49,7 @@ class TestimonialsTable
                     ->trueColor('success')
                     ->falseColor('warning')
                     ->sortable(),
-                
+
                 TextColumn::make('created_at')
                     ->label('Créé le')
                     ->dateTime('d/m/Y')
@@ -67,16 +67,16 @@ class TestimonialsTable
                     ->label('Approuver')
                     ->icon('heroicon-o-check')
                     ->color('success')
-                    ->visible(fn ($record) => !$record->is_approved)
+                    ->visible(fn ($record) => ! $record->is_approved)
                     ->action(fn ($record) => $record->update(['is_approved' => true])),
-                
+
                 Action::make('reject')
                     ->label('Masquer')
                     ->icon('heroicon-o-x-mark')
                     ->color('danger')
                     ->visible(fn ($record) => $record->is_approved)
                     ->action(fn ($record) => $record->update(['is_approved' => false])),
-                
+
                 EditAction::make()->label('Modifier'),
             ])
             ->toolbarActions([

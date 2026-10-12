@@ -8,6 +8,7 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationItem;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
@@ -38,7 +39,7 @@ class AdminPanelProvider extends PanelProvider
             ->globalSearchKeyBindings(['ctrl+k', 'cmd+k'])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->navigationItems([
-                \Filament\Navigation\NavigationItem::make('Retour au site')
+                NavigationItem::make('Retour au site')
                     ->url('/')
                     ->icon('heroicon-o-globe-alt')
                     ->sort(-1),

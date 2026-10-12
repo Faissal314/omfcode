@@ -63,9 +63,9 @@ class PostCommentsTable
                     ->label('Approuver')
                     ->icon('heroicon-o-check')
                     ->color('success')
-                    ->visible(fn ($record) => !$record->is_approved)
+                    ->visible(fn ($record) => ! $record->is_approved)
                     ->action(fn ($record) => $record->update(['is_approved' => true])),
-                
+
                 Action::make('reject')
                     ->label('Masquer')
                     ->icon('heroicon-o-x-mark')
